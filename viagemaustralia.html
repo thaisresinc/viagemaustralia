@@ -1,0 +1,998 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="light">
+<title>Sydney, Whitsundays e Gold Coast</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Karla:wght@400;500;700&display=swap">
+<style>
+html,body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+
+  /* Página sempre clara: é um documento de viagem, não um app. */
+  :root{
+    color-scheme:light;
+    --paper:#FBF8F2;
+    --paper-2:#F4EFE4;
+    --surface:#FFFFFF;
+    --navy:#12303D;
+    --navy-2:#1C4859;
+    --ink:#192B32;
+    --ink-2:#5D7077;
+    --gold:#A8842B;
+    --gold-2:#DCBA61;
+    --line:#DBD2C0;
+    --line-soft:#EBE4D6;
+    --stamp-blue:#2E6280;
+    --stamp-teal:#0E8593;
+    --stamp-coral:#C1553A;
+    --reef:#0C7E8C;
+    --coral:#C85C3C;
+    --shadow:0 1px 2px rgba(25,43,50,.05), 0 10px 30px -18px rgba(25,43,50,.45);
+    --display:"Fraunces","Iowan Old Style",Georgia,serif;
+    --body:"Karla","Helvetica Neue",Arial,sans-serif;
+    --mono:"Courier Prime","Courier New",monospace;
+  }
+
+  *{box-sizing:border-box}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:var(--body);font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:860px;margin:0 auto;padding-inline:20px;padding-block:0}
+  a{color:var(--reef);text-decoration-thickness:1px;text-underline-offset:3px}
+  a:focus-visible,input:focus-visible{outline:2px solid var(--reef);outline-offset:3px;border-radius:3px}
+  h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;line-height:1.14}
+  h2{font-size:clamp(1.55rem,4.4vw,2.1rem)}
+  p{margin:0}
+  .num{font-variant-numeric:tabular-nums}
+  .mono{font-family:var(--mono)}
+
+  .eyebrow{
+    font-family:var(--mono);font-size:.7rem;font-weight:700;letter-spacing:.2em;
+    text-transform:uppercase;color:var(--gold)
+  }
+
+  /* ============ CAPA DO PASSAPORTE ============ */
+  .cover{background:var(--navy);color:#EFE7D4;padding-block:46px 0}
+  .cover-inner{
+    display:flex;flex-direction:column;align-items:center;text-align:center;gap:20px;
+    border:1.5px solid rgba(220,186,97,.4);border-radius:4px;
+    padding:34px 24px 30px;margin-block:0 30px
+  }
+  .cover .sup{
+    font-family:var(--mono);font-size:.68rem;letter-spacing:.34em;text-transform:uppercase;
+    color:var(--gold-2);margin:0
+  }
+  .cover h1{
+    font-family:var(--display);font-size:clamp(2.2rem,8vw,3.6rem);font-weight:400;
+    color:#F6EFDC;letter-spacing:.01em;line-height:1.05
+  }
+  .cover h1 em{display:block;font-style:normal;font-weight:600;color:var(--gold-2);font-size:.46em;letter-spacing:.16em;margin-top:14px;text-transform:uppercase}
+  .emblem{width:92px;height:92px}
+  .cover .sub{color:rgba(239,231,212,.72);font-size:.95rem;max-width:44ch}
+
+  /* página de dados */
+  .datapage{background:var(--paper-2);border-top:3px double var(--gold);padding-block:26px 0}
+  .data-grid{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(138px,1fr));gap:20px 24px;
+    padding-bottom:22px
+  }
+  .field dt{
+    font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--ink-2);font-weight:700;margin:0
+  }
+  .field dd{margin:4px 0 0;font-family:var(--display);font-size:1.32rem;font-weight:600;line-height:1.1}
+  .field dd small{display:block;font-family:var(--body);font-size:.76rem;font-weight:500;color:var(--ink-2);margin-top:3px;letter-spacing:0}
+  .mrz{
+    border-top:1px solid var(--line);background:var(--paper);
+    font-family:var(--mono);font-size:.72rem;letter-spacing:.06em;color:var(--ink-2);
+    padding-block:12px;overflow-x:auto;white-space:nowrap
+  }
+  .mrz div + div{margin-top:3px}
+
+  /* ============ NAV ============ */
+  nav.jump{
+    position:sticky;top:env(safe-area-inset-top, 0px);z-index:20;
+    background:rgba(251,248,242,.93);backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line)
+  }
+  .jump-inner{display:flex;gap:4px;overflow-x:auto;padding-block:9px;scrollbar-width:none}
+  .jump-inner::-webkit-scrollbar{display:none}
+  .jump a{
+    flex:0 0 auto;font-family:var(--mono);font-size:.72rem;font-weight:700;letter-spacing:.1em;
+    text-transform:uppercase;text-decoration:none;color:var(--ink-2);
+    padding:6px 12px;border-radius:2px;white-space:nowrap
+  }
+  .jump a:hover{background:var(--paper-2);color:var(--navy)}
+
+  section{padding-block:52px}
+  .sec-head{margin-bottom:28px}
+  .sec-head h2{margin-top:8px}
+  .sec-head p{color:var(--ink-2);margin-top:10px;max-width:58ch}
+
+  /* ============ PÁGINAS CARIMBADAS ============ */
+  .page{
+    background:var(--surface);border:1px solid var(--line);border-radius:3px;
+    box-shadow:var(--shadow);padding:26px 26px 30px;position:relative;overflow:hidden
+  }
+  .page::before{
+    content:"";position:absolute;inset:7px;border:1px solid var(--line-soft);
+    border-radius:2px;pointer-events:none
+  }
+  .page > *{position:relative}
+  .page + .page{margin-top:22px}
+  .page-head{display:flex;gap:18px;align-items:flex-start;justify-content:space-between}
+  .page-no{font-family:var(--mono);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+  .page-head h3{font-size:clamp(1.7rem,5vw,2.25rem);margin-top:6px}
+  .page-when{font-family:var(--mono);font-size:.78rem;letter-spacing:.05em;color:var(--ink-2);margin-top:8px}
+  .page-when b{color:var(--ink)}
+  .stamp{flex:0 0 auto;width:118px;height:118px;margin-top:-4px}
+  .stamp text{font-family:var(--mono);font-weight:700}
+
+  .stay{
+    margin-top:22px;background:var(--paper-2);border:1px solid var(--line);border-radius:3px;
+    padding:16px 18px
+  }
+  .stay-top{display:flex;flex-wrap:wrap;gap:12px;align-items:baseline;justify-content:space-between}
+  .stay .label{font-family:var(--mono);font-size:.62rem;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+  .stay .name{font-family:var(--display);font-size:1.22rem;font-weight:600;margin-top:2px}
+  .stay .cost{text-align:right}
+  .stay .cost .amt{font-family:var(--display);font-size:1.5rem;font-weight:700;letter-spacing:-.02em;color:var(--navy)}
+  .stay .cost .per{font-family:var(--mono);font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);display:block;margin-top:2px}
+  .stay p{font-size:.92rem;margin-top:10px;color:var(--ink-2)}
+  .stay a{font-size:.88rem;display:inline-block;margin-top:10px}
+  .perks{list-style:none;padding:0;margin:12px 0 0;display:flex;flex-wrap:wrap;gap:6px}
+  .perks li{
+    font-family:var(--mono);font-size:.66rem;letter-spacing:.06em;text-transform:uppercase;
+    background:var(--surface);border:1px solid var(--line);border-radius:2px;padding:4px 8px;color:var(--ink-2)
+  }
+
+  .tarifa{margin-top:14px;border-top:1px dashed var(--line);padding-top:12px;display:flex;flex-direction:column;gap:8px}
+  .tarifa-row{font-size:.88rem;color:var(--ink-2);padding-left:16px;position:relative}
+  .tarifa-row::before{content:"";position:absolute;left:0;top:.55em;width:6px;height:6px;border-radius:50%;border:1.5px solid var(--reef)}
+  .tarifa-row b{color:var(--ink);font-family:var(--display);font-size:1rem}
+
+  .opt{
+    display:inline-flex;align-items:center;gap:7px;margin-top:8px;cursor:pointer;
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;
+    color:var(--ink-2);font-weight:700
+  }
+  .opt input{
+    appearance:none;width:15px;height:15px;border:2px solid var(--line);border-radius:3px;
+    background:var(--surface);cursor:pointer;display:grid;place-content:center;flex:0 0 auto
+  }
+  .opt input::after{
+    content:"";width:7px;height:4px;border-left:2px solid #fff;border-bottom:2px solid #fff;
+    transform:rotate(-45deg) scale(0)
+  }
+  .opt input:checked{background:var(--reef);border-color:var(--reef)}
+  .opt input:checked::after{transform:rotate(-45deg) scale(1)}
+
+  .group + .group{margin-top:34px}
+  .group-head{margin-bottom:15px}
+  .group-day{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);font-weight:700}
+  .group-head h3{font-family:var(--display);font-size:1.38rem;margin-top:6px}
+  .group-head p{font-size:.9rem;color:var(--ink-2);margin-top:7px;max-width:58ch}
+  .tour input[type=radio]{border-radius:50%}
+  .tour input[type=radio]::after{
+    border:0;width:9px;height:9px;border-radius:50%;background:#fff;transform:scale(0)
+  }
+  .tour input[type=radio]:checked::after{transform:scale(1)}
+  .clear{
+    margin-top:12px;background:none;border:0;padding:6px 2px;cursor:pointer;
+    font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;
+    color:var(--ink-2);font-weight:700;text-decoration:underline;text-underline-offset:3px
+  }
+  .clear:hover{color:var(--coral)}
+  .clear:focus-visible{outline:2px solid var(--reef);outline-offset:3px}
+  .sec-head p b{color:var(--ink)}
+
+  .ledger-head{
+    background:var(--navy);color:var(--gold-2);
+    font-family:var(--mono);font-size:.63rem;letter-spacing:.2em;text-transform:uppercase;
+    font-weight:700;padding:10px 20px
+  }
+  .ledger-row.sub{background:var(--paper-2)}
+  .ledger-row.sub .what{font-family:var(--mono);font-size:.65rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+  .ledger-row.sub .amt{font-size:1.16rem;color:var(--navy)}
+  .ledger-row .amt.off{font-family:var(--mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+
+  .ideas{list-style:none;padding:0;margin:22px 0 0;display:flex;flex-direction:column;gap:13px}
+  .ideas li{padding-left:20px;position:relative;font-size:.96rem}
+  .ideas li::before{
+    content:"";position:absolute;left:0;top:.58em;width:7px;height:7px;
+    background:var(--accent-dot, var(--reef));transform:rotate(45deg)
+  }
+  .ideas b{font-weight:700}
+  .ideas span{color:var(--ink-2)}
+
+  .flag{
+    display:flex;gap:10px;background:#FBEDE4;border-left:3px solid var(--coral);
+    padding:12px 15px;border-radius:0 3px 3px 0;font-size:.9rem;margin-top:18px
+  }
+  .flag b{color:var(--coral)}
+
+  /* ============ CARTÃO DE EMBARQUE ============ */
+  .boarding{
+    display:flex;align-items:stretch;margin-block:22px;
+    background:var(--surface);border:1px solid var(--line);border-radius:3px;box-shadow:var(--shadow)
+  }
+  .bp-main{flex:1 1 auto;padding:16px 20px;min-width:0}
+  .bp-tag{font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-2)}
+  .bp-route{display:flex;align-items:center;gap:14px;margin-top:8px}
+  .bp-route .code{font-family:var(--display);font-size:1.75rem;font-weight:700;letter-spacing:.02em;color:var(--navy);line-height:1}
+  .bp-route .plane{flex:0 0 auto;color:var(--gold)}
+  .bp-city{font-family:var(--mono);font-size:.64rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:5px;display:block}
+  .bp-meta{font-size:.86rem;color:var(--ink-2);margin-top:10px}
+  .bp-stub{
+    flex:0 0 auto;display:flex;flex-direction:column;justify-content:center;align-items:center;
+    padding:16px 18px;border-left:2px dashed var(--line);background:var(--paper-2);text-align:center
+  }
+  .bp-stub .amt{font-family:var(--display);font-size:1.4rem;font-weight:700;color:var(--navy)}
+  .bp-stub .per{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);margin-top:3px}
+
+  /* ============ PASSEIOS ============ */
+  .tours{display:flex;flex-direction:column;gap:14px}
+  .tour{
+    background:var(--surface);border:1px solid var(--line);border-radius:3px;
+    box-shadow:var(--shadow);overflow:hidden;display:block;cursor:pointer
+  }
+  .tour:has(input:checked){border-color:var(--reef);box-shadow:0 0 0 1px var(--reef), var(--shadow)}
+  .tour-top{display:flex;gap:14px;align-items:flex-start;padding:17px 19px}
+  .tour input[type=checkbox]{
+    appearance:none;flex:0 0 auto;width:22px;height:22px;margin-top:3px;
+    border:2px solid var(--line);border-radius:3px;background:var(--paper);cursor:pointer;
+    display:grid;place-content:center;transition:all .12s
+  }
+  .tour input[type=checkbox]::after{
+    content:"";width:10px;height:6px;border-left:2.5px solid #fff;border-bottom:2.5px solid #fff;
+    transform:rotate(-45deg) scale(0);transition:transform .12s
+  }
+  .tour input[type=checkbox]:checked{background:var(--reef);border-color:var(--reef)}
+  .tour input[type=checkbox]:checked::after{transform:rotate(-45deg) scale(1)}
+  .tour-title{flex:1 1 auto;min-width:0}
+  .tour-title h3{font-family:var(--body);font-size:1.04rem;font-weight:700}
+  .tour-title .sub{font-size:.86rem;color:var(--ink-2);margin-top:3px}
+  .tour-price{text-align:right;flex:0 0 auto}
+  .tour-price .amt{font-family:var(--display);font-size:1.32rem;font-weight:700;letter-spacing:-.02em;color:var(--navy)}
+  .tour-price .per{font-family:var(--mono);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-2);display:block;margin-top:2px}
+  .tour-facts{
+    display:grid;grid-template-columns:repeat(auto-fit,minmax(132px,1fr));gap:1px;
+    background:var(--line-soft);border-top:1px solid var(--line-soft)
+  }
+  .fact{background:var(--surface);padding:11px 19px}
+  .fact dt{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);font-weight:700}
+  .fact dd{margin:3px 0 0;font-size:.88rem;font-weight:500}
+
+  /* ============ NOTAS ============ */
+  .notes{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+  .notes li{background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:16px 18px}
+  .notes .tag{
+    display:inline-block;font-family:var(--mono);font-size:.6rem;font-weight:700;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:7px
+  }
+  .notes p{font-size:.92rem}
+
+  /* ============ ORÇAMENTO ============ */
+  .ledger{background:var(--surface);border:1px solid var(--line);border-radius:3px;box-shadow:var(--shadow);overflow:hidden}
+  .ledger-row{display:flex;gap:14px;align-items:baseline;justify-content:space-between;padding:13px 20px;border-bottom:1px solid var(--line-soft)}
+  .ledger-row .what{font-size:.94rem;min-width:0}
+  .ledger-row .what small{display:block;font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-2);margin-top:3px}
+  .ledger-row .amt{font-family:var(--display);font-size:1.08rem;font-weight:600;white-space:nowrap}
+  .ledger-row .amt.open{font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--coral);font-weight:700}
+  .ledger-row.total{background:var(--navy);color:#F2EBDA;border-bottom:0;padding-block:18px}
+  .ledger-row.total .what{font-family:var(--mono);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold-2)}
+  .ledger-row.total .amt{font-size:1.9rem;font-weight:700;color:#F6EFDC}
+  .dials{display:flex;flex-wrap:wrap;gap:14px;padding:16px 20px;background:var(--paper-2);border-bottom:1px solid var(--line-soft)}
+  .dial{flex:1 1 180px}
+  .dial label{display:block;font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-2);font-weight:700;margin-bottom:5px}
+  .dial input{
+    width:100%;font-family:var(--body);font-size:1rem;font-weight:600;color:var(--ink);
+    background:var(--surface);border:1px solid var(--line);border-radius:3px;padding:8px 10px
+  }
+  .outside{margin-top:18px;font-size:.88rem;color:var(--ink-2)}
+  .outside b{color:var(--ink)}
+
+  footer{background:var(--navy);color:rgba(239,231,212,.75);padding-block:38px 54px;margin-top:52px;text-align:center}
+  footer .sc{margin-bottom:16px}
+  footer p{font-size:.84rem;max-width:52ch;margin-inline:auto}
+  footer p + p{margin-top:9px}
+
+  @media (max-width:600px){
+    .page-head{flex-direction:column-reverse;align-items:flex-start;gap:10px}
+    .stamp{width:96px;height:96px;align-self:flex-end;margin-top:0}
+    .tour-top{flex-wrap:wrap}
+    .tour-price{text-align:left;width:100%;padding-left:36px}
+    .boarding{flex-direction:column}
+    .bp-stub{border-left:0;border-top:2px dashed var(--line);flex-direction:row;gap:10px;align-items:baseline;justify-content:center}
+    .bp-stub .per{margin-top:0}
+  }
+  @media (prefers-reduced-motion: reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<header class="cover">
+  <div class="wrap">
+    <div class="cover-inner">
+      <p class="sup">Documento de viagem &middot; uso familiar</p>
+      <svg class="emblem" viewBox="0 0 100 100" role="img" aria-label="Emblema com sol, ondas e a constelação do Cruzeiro do Sul">
+        <circle cx="50" cy="50" r="46" fill="none" stroke="#DCBA61" stroke-width="1.4"/>
+        <circle cx="50" cy="50" r="41" fill="none" stroke="#DCBA61" stroke-width="0.7" opacity=".6"/>
+        <circle cx="50" cy="38" r="11" fill="none" stroke="#DCBA61" stroke-width="1.6"/>
+        <g stroke="#DCBA61" stroke-width="1.3" stroke-linecap="round">
+          <line x1="50" y1="20" x2="50" y2="24"/>
+          <line x1="36" y1="24" x2="38.5" y2="27.5"/>
+          <line x1="64" y1="24" x2="61.5" y2="27.5"/>
+          <line x1="30" y1="38" x2="34" y2="38"/>
+          <line x1="70" y1="38" x2="66" y2="38"/>
+        </g>
+        <path d="M20 62 q7.5 -6 15 0 t15 0 t15 0 t15 0" fill="none" stroke="#DCBA61" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M22 70 q7 -5.5 14 0 t14 0 t14 0 t14 0" fill="none" stroke="#DCBA61" stroke-width="1.2" stroke-linecap="round" opacity=".7"/>
+        <path d="M26 78 q6.5 -5 13 0 t13 0 t13 0" fill="none" stroke="#DCBA61" stroke-width="0.9" stroke-linecap="round" opacity=".45"/>
+      </svg>
+      <h1>Austrália<em>Novembro &middot; Dezembro 2026</em></h1>
+      <p class="sub">Três paradas, vinte e oito dias e dois passeios reservados nos Whitsundays.
+        Tudo que já está fechado, e o que ainda está em aberto, num lugar só.</p>
+    </div>
+  </div>
+</header>
+
+<div class="datapage">
+  <div class="wrap">
+    <dl class="data-grid">
+      <div class="field"><dt>Portadores</dt><dd>Marcelo, Chirlei<br>&amp; Thais<small>três viajantes</small></dd></div>
+      <div class="field"><dt>Entrada</dt><dd class="num">08 NOV<small>domingo, em Sydney</small></dd></div>
+      <div class="field"><dt>Saída</dt><dd class="num">05 DEZ<small>sábado, da Gold Coast</small></dd></div>
+      <div class="field"><dt>Duração</dt><dd class="num">27<small>noites em três cidades</small></dd></div>
+      <div class="field"><dt>Contagem</dt><dd class="num" id="countdown">&mdash;<small id="countdown-sub">para embarcar</small></dd></div>
+      <div class="field"><dt>Emitido por</dt><dd>Thais<small>com toda a atenção</small></dd></div>
+    </dl>
+  </div>
+  <div class="mrz">
+    <div class="wrap">VIAGEM&lt;&lt;AUSTRALIA&lt;&lt;2026&lt;&lt;&lt;MARCELO&lt;&lt;CHIRLEI&lt;&lt;THAIS&lt;&lt;&lt;&lt;&lt;&lt;&lt;</div>
+    <div class="wrap">SYD&lt;08NOV&lt;&lt;PPP&lt;11NOV&lt;&lt;OOL&lt;15NOV&lt;&lt;RETORNO&lt;05DEZ&lt;&lt;</div>
+  </div>
+</div>
+
+<nav class="jump">
+  <div class="wrap jump-inner">
+    <a href="#roteiro">Roteiro</a>
+    <a href="#passeios">Passeios</a>
+    <a href="#saber">Bom saber</a>
+    <a href="#custos">Custos</a>
+  </div>
+</nav>
+
+<main>
+<section id="roteiro">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Parada por parada</p>
+      <h2>O roteiro</h2>
+      <p>Do sul para o norte e de volta. As duas primeiras paradas são curtas e cheias;
+        a última tem três semanas e cabe tudo com calma.</p>
+    </div>
+
+    <article class="page" style="--accent-dot:var(--stamp-blue)">
+      <div class="page-head">
+        <div>
+          <div class="page-no">Página 01 &middot; New South Wales</div>
+          <h3>Sydney</h3>
+          <div class="page-when"><b>08 &mdash; 11 NOV</b> &middot; dom a qua &middot; 3 noites</div>
+        </div>
+        <svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Carimbo de Sydney com velas de barco">
+          <g transform="rotate(-8 60 60)" fill="none" stroke="#2E6280" stroke-width="2.4">
+            <circle cx="60" cy="60" r="55"/>
+            <circle cx="60" cy="60" r="48" stroke-width="1"/>
+            <path id="arcSyd" d="M 25 60 A 35 35 0 0 1 95 60" stroke="none"/>
+            <text fill="#2E6280" font-size="10.5" letter-spacing="1.6" stroke="none">
+              <textPath href="#arcSyd" startOffset="50%" text-anchor="middle">SYDNEY &middot; NSW</textPath>
+            </text>
+            <g stroke-width="2.2" stroke-linejoin="round">
+              <path d="M44 74 Q46 54 58 46 Q52 62 54 74 Z"/>
+              <path d="M56 74 Q59 50 73 42 Q66 60 68 74 Z"/>
+              <path d="M70 74 Q73 56 84 50 Q78 63 80 74 Z"/>
+            </g>
+            <path d="M34 79 h54" stroke-width="2"/>
+            <text x="60" y="93" text-anchor="middle" fill="#2E6280" font-size="8.5" letter-spacing="1.2" stroke="none">08 NOV 2026</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="stay">
+        <div class="stay-top">
+          <div>
+            <div class="label">Hospedagem &middot; Airbnb</div>
+            <div class="name">Potts Point</div>
+          </div>
+          <div class="cost">
+            <span class="amt num">A$1.099</span>
+            <span class="per">3 noites, no total</span>
+          </div>
+        </div>
+        <p>Potts Point é uma das melhores localizações da cidade pra quem vai a pé:
+          um bairro cheio de prédios art déco, com ruas arborizadas, restaurante em cada esquina
+          e estação de trem ali perto.</p>
+        <ul class="perks">
+          <li>Bairro a pé</li><li>Estação Kings Cross</li><li>Restaurantes</li><li>Perto do centro</li>
+        </ul>
+        <a href="https://www.airbnb.com.au/rooms/1903284?adults=3&amp;check_in=2026-11-08&amp;check_out=2026-11-11" target="_blank" rel="noopener">Abrir a reserva no Airbnb</a>
+      </div>
+
+      <ul class="ideas">
+        <li><b>Descer a escadaria McElhone até Woolloomooloo</b> <span>&mdash; saindo do bairro, uns dez minutos a pé até o cais. Lá embaixo fica o Finger Wharf e o Harry's Café de Wheels, uma carrocinha de tortas que serve na calçada desde os anos 1930.</span></li>
+        <li><b>Opera House e Circular Quay</b> <span>&mdash; dá pra emendar com o Royal Botanic Garden e ir caminhando até a Mrs Macquarie's Chair, que é de onde sai a foto com a ópera e a ponte no mesmo quadro.</span></li>
+        <li><b>Balsa até Manly</b> <span>&mdash; trinta minutos saindo de Circular Quay, passando debaixo da ponte. É transporte público, então custa uns poucos dólares: o passeio com a melhor vista pelo menor preço da cidade.</span></li>
+        <li><b>Caminhada Bondi &rarr; Coogee</b> <span>&mdash; seis quilômetros na beira do penhasco, com praias no caminho. Se for muito, só o trecho Bondi&ndash;Bronte tem 1,5 km e já entrega a melhor parte.</span></li>
+        <li><b>Victoria e Macleay Street</b> <span>&mdash; as duas ruas principais do bairro, pra café da manhã sem precisar pegar transporte. Prático nos dias de chegada e de partida.</span></li>
+        <li><b>Blue Mountains</b> <span>&mdash; as Three Sisters, em Katoomba. Trem direto da Central, cerca de duas horas por trecho. Toma o dia inteiro, então só se sobrar fôlego.</span></li>
+      </ul>
+    </article>
+
+    <div class="boarding">
+      <div class="bp-main">
+        <div class="bp-tag">Voo interno 01 &middot; a reservar</div>
+        <div class="bp-route">
+          <div>
+            <span class="code">SYD</span>
+            <span class="bp-city">Sydney</span>
+          </div>
+          <svg class="plane" width="30" height="16" viewBox="0 0 30 16" aria-hidden="true">
+            <path d="M0 8 h22" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <path d="M22 8 l-7 -5 v10 z" fill="currentColor"/>
+          </svg>
+          <div>
+            <span class="code">PPP</span>
+            <span class="bp-city">Proserpine</span>
+          </div>
+        </div>
+        <p class="bp-meta">Quarta, 11 de novembro. Whitsunday Coast é o aeroporto que atende Airlie Beach &mdash;
+          Hamilton Island (HTI) é a alternativa, mas exige balsa depois.</p>
+      </div>
+      <div class="bp-stub">
+        <span class="amt num">A$120</span>
+        <span class="per">por pessoa, aprox.</span>
+      </div>
+    </div>
+
+    <article class="page" style="--accent-dot:var(--stamp-teal)">
+      <div class="page-head">
+        <div>
+          <div class="page-no">Página 02 &middot; Queensland</div>
+          <h3>Airlie Beach</h3>
+          <div class="page-when"><b>11 &mdash; 14 NOV</b> &middot; qua a sáb &middot; 3 noites</div>
+        </div>
+        <svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Carimbo de Airlie Beach com um peixe-palhaço">
+          <g transform="rotate(7 60 60)" fill="none" stroke="#0E8593" stroke-width="2.4">
+            <circle cx="60" cy="60" r="55"/>
+            <circle cx="60" cy="60" r="48" stroke-width="1"/>
+            <path id="arcAir" d="M 25 60 A 35 35 0 0 1 95 60" stroke="none"/>
+            <text fill="#0E8593" font-size="9.5" letter-spacing="1.2" stroke="none">
+              <textPath href="#arcAir" startOffset="50%" text-anchor="middle">AIRLIE BEACH &middot; QLD</textPath>
+            </text>
+            <g stroke="none">
+              <path d="M36 64 q12 -13 27 -12 q13 1 18 12 q-5 11 -18 12 q-15 1 -27 -12 z" fill="#0E8593"/>
+              <path d="M81 64 l11 -9 v18 z" fill="#0E8593"/>
+              <path d="M46 55 q3 9 0 18 q-4 -2 -6 -9 q2 -7 6 -9 z" fill="#FBF8F2"/>
+              <path d="M60 52 q3 12 0 24 q-4 -1 -5 -12 q1 -11 5 -12 z" fill="#FBF8F2"/>
+              <path d="M73 55 q3 9 0 18 q-3 -3 -4 -9 q1 -6 4 -9 z" fill="#FBF8F2"/>
+              <circle cx="42" cy="61" r="2.1" fill="#FBF8F2"/>
+            </g>
+            <path d="M34 79 q6.5 -4.5 13 0 t13 0 t13 0" stroke-width="1.8" stroke-linecap="round"/>
+            <text x="60" y="93" text-anchor="middle" fill="#0E8593" font-size="8.5" letter-spacing="1.2" stroke="none">11 NOV 2026</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="stay">
+        <div class="stay-top">
+          <div>
+            <div class="label">Hospedagem &middot; Booking</div>
+            <div class="name">Bella Isola</div>
+          </div>
+          <div class="cost">
+            <span class="amt num">A$971</span>
+            <span class="per">3 noites, no total</span>
+          </div>
+        </div>
+        <p>Apartamento de dois quartos e 150 m², recém-reformado, de frente pro mar &mdash;
+          uma cama de casal num quarto e duas de solteiro no outro. Tem piscina aberta o ano todo,
+          terraço com vista, banheira de hidromassagem, cozinha completa com lava-louças,
+          churrasqueira e um minimercado no prédio. A praia começa na porta; o Woolworths fica
+          a cinco minutos a pé e o ponto de ônibus, a dois. Hóspedes em grupo dão nota 10
+          pra localização.</p>
+        <ul class="perks">
+          <li>150 m&sup2;</li><li>Vista mar</li><li>Piscina</li><li>Hidromassagem</li>
+          <li>1 casal + 2 solteiro</li><li>Cozinha completa</li><li>Lava-louças</li>
+          <li>Churrasqueira</li><li>Ar-condicionado</li><li>Wi-Fi</li><li>Check-in privativo</li>
+        </ul>
+        <div class="tarifa">
+          <div class="tarifa-row">
+            <span><b>A$971</b> &mdash; não reembolsável, pagamento online na hora</span>
+          </div>
+          <div class="tarifa-row">
+            <span><b>A$1.065</b> &mdash; com cancelamento grátis até 12 de outubro, e sem pagar
+              nada até o dia 10. São <b>A$94 a mais</b> pela liberdade de desmarcar.</span>
+          </div>
+        </div>
+        <a href="https://www.booking.com/hotel/au/bella-isola.html?checkin=2026-11-11&amp;checkout=2026-11-14&amp;group_adults=3" target="_blank" rel="noopener">Abrir a reserva no Booking</a>
+      </div>
+
+      <ul class="ideas">
+        <li><b>Quinta 12 e sexta 13 são os dois únicos dias cheios</b> <span>&mdash; um passeio em cada. A sugestão é deixar a barreira de corais na quinta, que é o dia mais longo, e o Whitehaven na sexta, mais leve, na véspera de voar.</span></li>
+        <li><b>Airlie Beach Lagoon</b> <span>&mdash; piscina pública de graça na beira-mar, com salva-vidas e sombra. Serve pro fim de tarde de quarta, quando vocês chegam cansados do voo.</span></li>
+        <li><b>Bicentennial Boardwalk</b> <span>&mdash; passarela plana de quatro quilômetros ligando a lagoa à marina, toda à beira d'água. Boa logo cedo, antes do calor apertar.</span></li>
+        <li><b>Jantar na marina</b> <span>&mdash; a Port of Airlie e a Abell Point concentram os restaurantes com vista pros barcos. Fica tudo a pé do apartamento.</span></li>
+      </ul>
+
+      <div class="flag">
+        <span><b>Reservem os dois passeios antes de viajar.</b> Novembro já é temporada alta
+          e os barcos com horário melhor fecham semanas antes.</span>
+      </div>
+    </article>
+
+    <div class="boarding">
+      <div class="bp-main">
+        <div class="bp-tag">Voo interno 02 &middot; a reservar</div>
+        <div class="bp-route">
+          <div>
+            <span class="code">PPP</span>
+            <span class="bp-city">Proserpine</span>
+          </div>
+          <svg class="plane" width="30" height="16" viewBox="0 0 30 16" aria-hidden="true">
+            <path d="M0 8 h22" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/>
+            <path d="M22 8 l-7 -5 v10 z" fill="currentColor"/>
+          </svg>
+          <div>
+            <span class="code">BNE</span>
+            <span class="bp-city">Brisbane</span>
+          </div>
+        </div>
+        <p class="bp-meta">Sábado, 14 de novembro. De Brisbane até a Gold Coast é cerca de uma hora,
+          de trem direto ou de carro.</p>
+      </div>
+      <div class="bp-stub">
+        <span class="amt num">A$200</span>
+        <span class="per">por pessoa, aprox.</span>
+      </div>
+    </div>
+
+    <article class="page" style="--accent-dot:var(--stamp-coral)">
+      <div class="page-head">
+        <div>
+          <div class="page-no">Página 03 &middot; Queensland</div>
+          <h3>Gold Coast</h3>
+          <div class="page-when"><b>15 NOV &mdash; 05 DEZ</b> &middot; dom a sáb &middot; 20 noites</div>
+        </div>
+        <svg class="stamp" viewBox="0 0 120 120" role="img" aria-label="Carimbo da Gold Coast com sol e onda">
+          <g transform="rotate(-6 60 60)" fill="none" stroke="#C1553A" stroke-width="2.4">
+            <circle cx="60" cy="60" r="55"/>
+            <circle cx="60" cy="60" r="48" stroke-width="1"/>
+            <path id="arcGc" d="M 25 60 A 35 35 0 0 1 95 60" stroke="none"/>
+            <text fill="#C1553A" font-size="9.5" letter-spacing="1.2" stroke="none">
+              <textPath href="#arcGc" startOffset="50%" text-anchor="middle">GOLD COAST &middot; QLD</textPath>
+            </text>
+            <circle cx="60" cy="54" r="9" stroke-width="2.2"/>
+            <g stroke-width="1.8" stroke-linecap="round">
+              <line x1="60" y1="39" x2="60" y2="42"/>
+              <line x1="48" y1="43" x2="50" y2="45.5"/>
+              <line x1="72" y1="43" x2="70" y2="45.5"/>
+            </g>
+            <path d="M32 73 q9 -11 20 -5.5 q8 3.5 15 -2 q5.5 -4.5 13 -1" stroke-width="2.6" stroke-linecap="round"/>
+            <path d="M36 82 q8 -4.5 16 0 t16 0 t12 0" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+            <text x="60" y="93" text-anchor="middle" fill="#C1553A" font-size="8.5" letter-spacing="1.2" stroke="none">15 NOV 2026</text>
+          </g>
+        </svg>
+      </div>
+
+      <div class="stay">
+        <div class="stay-top">
+          <div>
+            <div class="label">Hospedagem &middot; Airbnb</div>
+            <div class="name">Reservado</div>
+          </div>
+          <div class="cost">
+            <span class="amt num">A$6.721,80</span>
+            <span class="per">20 noites, no total</span>
+          </div>
+        </div>
+        <p>Vinte noites, de 15 de novembro a 5 de dezembro. É a base mais longa da viagem
+          e a que dá margem pra desmarcar um dia e ficar em casa sem perder nada. O deslocamento
+          aqui sai de graça: quem dirige é a Thais, no carro dela.</p>
+        <a href="https://www.airbnb.com.au/rooms/1663605452139904034?adults=3&amp;check_in=2026-11-15&amp;check_out=2026-12-05" target="_blank" rel="noopener">Abrir a reserva no Airbnb</a>
+      </div>
+
+      <div class="flag">
+        <span><b>A noite de sábado, 14/11, fica no meio das duas reservas.</b>
+          A saída de Airlie Beach é dia 14 e o Airbnb só começa no dia 15 &mdash; sobra uma noite
+          pra resolver, em Brisbane no caminho ou com uma diária a mais em Airlie.</span>
+      </div>
+
+      <ul class="ideas">
+        <li><b>Currumbin Wildlife Sanctuary</b> <span>&mdash; coalas, cangurus e a alimentação dos papagaios lorikeet logo cedo, com centenas deles pousando nos braços de quem segura o prato. Bem mais tranquilo que um parque temático.</span></li>
+        <li><b>Burleigh Heads</b> <span>&mdash; trilha curta e sombreada no morro, com a praia e os cafés da Goodwin Terrace embaixo. O melhor pôr do sol da região, com a cidade inteira aparecendo ao longe.</span></li>
+        <li><b>SkyPoint, em Surfers Paradise</b> <span>&mdash; mirante no 77º andar, aberto até tarde. Vale mais no fim do dia, com a costa toda acesa.</span></li>
+        <li><b>Tamborine Mountain</b> <span>&mdash; cachoeiras, a passarela suspensa na copa das árvores e vinícolas pequenas. Dia de carro, uns 45 minutos subindo a serra.</span></li>
+        <li><b>Springbrook e a Natural Bridge</b> <span>&mdash; cachoeira que cai dentro de uma caverna. Os vaga-lumes só aparecem depois de escurecer, então é passeio de fim de tarde.</span></li>
+        <li><b>Byron Bay</b> <span>&mdash; cerca de uma hora de carro pro sul, já em New South Wales. O farol fica no ponto mais a leste da Austrália e é comum ver golfinhos da trilha.</span></li>
+        <li><b>Parques temáticos</b> <span>&mdash; Movie World, Sea World e Dreamworld, todos no mesmo eixo. Escolher um só, e num dia de semana.</span></li>
+        <li><b>Brisbane</b> <span>&mdash; cerca de uma hora e meia de trem direto, sem precisar de carro. Dá pra ir e voltar no mesmo dia.</span></li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<section id="passeios" style="background:var(--paper-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Airlie Beach &middot; dois dias cheios</p>
+      <h2>Os passeios</h2>
+      <p>Quinta e sexta são os dois únicos dias inteiros em Airlie Beach, e cada um comporta
+        um passeio. O Whitehaven tem duas versões e vocês fazem <b>uma ou outra</b> &mdash;
+        é a mesma praia, então não faz sentido repetir. A barreira de corais é o outro dia,
+        e entra por conta própria.</p>
+    </div>
+
+    <div class="group">
+      <div class="group-head">
+        <span class="group-day">Um dos dois dias &middot; escolha uma</span>
+        <h3>Whitehaven Beach</h3>
+        <p>As duas vão para a mesma praia. A diferença é quanto tempo se fica lá e se o mirante
+          do Hill Inlet entra no roteiro.</p>
+      </div>
+
+      <div class="tours">
+        <label class="tour">
+          <div class="tour-top">
+            <input type="radio" name="whitehaven" class="tour-check" data-price="155" data-label="Whitehaven, meio dia">
+            <div class="tour-title">
+              <h3>Meio dia</h3>
+              <div class="sub">A ponta sul da praia, o trecho abrigado e com estrutura. Sai de Airlie e passa em Daydream e Hamilton Island no caminho, por isso o dia rende quase sete horas.</div>
+            </div>
+            <div class="tour-price">
+              <span class="amt num">A$155</span>
+              <span class="per">por pessoa</span>
+            </div>
+          </div>
+          <dl class="tour-facts">
+            <div class="fact"><dt>Duração</dt><dd>cerca de 7 horas</dd></div>
+            <div class="fact"><dt>Horários</dt><dd class="num">7h15&ndash;14h15 ou 11h35&ndash;18h10</dd></div>
+            <div class="fact"><dt>Na praia</dt><dd>até 2 horas</dd></div>
+            <div class="fact"><dt>Incluso</dt><dd>taxa do parque, lanche, macacão</dd></div>
+          </dl>
+        </label>
+
+        <label class="tour">
+          <div class="tour-top">
+            <input type="radio" name="whitehaven" class="tour-check" data-price="240" data-label="Whitehaven e Hill Inlet, dia inteiro" checked>
+            <div class="tour-title">
+              <h3>Dia inteiro, com Hill Inlet</h3>
+              <div class="sub">A praia inteira, o mirante do Hill Inlet &mdash; de onde se vê a areia branca desenhando o mar em faixas &mdash; e uma parada de snorkel no caminho.</div>
+            </div>
+            <div class="tour-price">
+              <span class="amt num">A$240</span>
+              <span class="per">por pessoa</span>
+            </div>
+          </div>
+          <dl class="tour-facts">
+            <div class="fact"><dt>Duração</dt><dd>cerca de 8 horas</dd></div>
+            <div class="fact"><dt>Na praia</dt><dd>cerca de 2h30</dd></div>
+            <div class="fact"><dt>Diferencial</dt><dd>o mirante do Hill Inlet</dd></div>
+            <div class="fact"><dt>Incluso</dt><dd>almoço, snorkel, macacão</dd></div>
+          </dl>
+        </label>
+      </div>
+      <button type="button" class="clear" id="clear-wh">Não fazer nenhum dos dois</button>
+    </div>
+
+    <div class="group">
+      <div class="group-head">
+        <span class="group-day">O outro dia &middot; passeio à parte</span>
+        <h3>Barreira de corais</h3>
+        <p>Esse não concorre com o Whitehaven: é outro dia, outro lugar e duas horas de barco
+          costa afora. Marque se for fazer.</p>
+      </div>
+
+      <div class="tours">
+        <label class="tour">
+          <div class="tour-top">
+            <input type="checkbox" id="reef-check" class="tour-check" data-price="300" checked>
+            <div class="tour-title">
+              <h3>Pontão no Hardy Reef</h3>
+              <div class="sub">Plataforma fixa em mar aberto, na borda externa do recife. É onde aparecem os peixes-palhaço, as tartarugas e o wally, o peixe-napoleão que mora ali e já é velho conhecido da tripulação.</div>
+            </div>
+            <div class="tour-price">
+              <span class="amt num">A$300</span>
+              <span class="per">por pessoa</span>
+            </div>
+          </div>
+          <dl class="tour-facts">
+            <div class="fact"><dt>Duração</dt><dd>cerca de 10 horas</dd></div>
+            <div class="fact"><dt>Barco</dt><dd>2 horas em cada sentido</dd></div>
+            <div class="fact"><dt>No pontão</dt><dd>até 4 horas</dd></div>
+            <div class="fact"><dt>Incluso</dt><dd>3 refeições, semissubmarino, observatório</dd></div>
+          </dl>
+        </label>
+      </div>
+    </div>
+
+    <div class="flag" style="margin-top:26px">
+      <span><b>Se enjoo em barco for um problema,</b> o meio dia no Whitehaven é o trajeto mais
+        curto de todos &mdash; e a barreira, o mais longo. Vale escolher pensando nisso antes
+        de pensar no preço.</span>
+    </div>
+  </div>
+</section>
+
+<section id="saber">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Novembro por aqui</p>
+      <h2>Bom saber</h2>
+      <p>Quatro coisas que mudam o dia e que ninguém avisa antes de embarcar.</p>
+    </div>
+    <ul class="notes">
+      <li>
+        <span class="tag">O sol</span>
+        <p>O sol australiano queima mais rápido que o brasileiro &mdash; o índice UV chega ao topo da escala,
+          e dia nublado não protege. Protetor entre dez e três, sempre, e o de recife nos dias de barco,
+          que é o permitido em cima do coral.</p>
+      </li>
+      <li>
+        <span class="tag">Água-viva</span>
+        <p>Novembro abre a temporada das águas-vivas no litoral de Queensland. Todo operador entrega
+          o macacão de lycra junto com o snorkel. É pra vestir, mesmo com calor &mdash; e vale o mesmo
+          pra qualquer banho de mar no norte.</p>
+      </li>
+      <li>
+        <span class="tag">O calor</span>
+        <p>Nos Whitsundays em novembro passa dos 30&nbsp;°C com umidade alta, e pancada de chuva
+          no fim da tarde é comum. Chapéu e garrafa d'água resolvem quase tudo; a chuva costuma
+          passar em meia hora.</p>
+      </li>
+      <li>
+        <span class="tag">O barco</span>
+        <p>O trajeto até o pontão é mar aberto, e o Coral Sea balança. Se forem usar remédio pra enjoo,
+          o certo é tomar antes de embarcar &mdash; depois que o mal-estar começa, já não resolve.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<section id="custos" style="background:var(--paper-2);border-block:1px solid var(--line)">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="eyebrow">Declaração de gastos</p>
+      <h2>Quanto deve custar</h2>
+      <p>Para os três e os 28 dias, somado por grupo. A maior parte das refeições em casa,
+        e o almoço dos passeios de dia inteiro já está no preço deles. Os três campos claros
+        são estimativas &mdash; mexa à vontade que o total refaz sozinho.</p>
+    </div>
+
+    <div class="ledger">
+      <div class="ledger-head">Acomodações &middot; 26 noites</div>
+      <div class="ledger-row">
+        <span class="what">Sydney<small>3 noites &middot; Potts Point</small></span>
+        <span class="amt num">A$1.099</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Airlie Beach<small>3 noites &middot; Bella Isola</small>
+          <label class="opt"><input type="checkbox" id="in-reemb"> com cancelamento grátis (+A$94)</label>
+        </span>
+        <span class="amt num" id="led-airlie">A$971</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Gold Coast<small>20 noites &middot; Airbnb</small></span>
+        <span class="amt num">A$6.721,80</span>
+      </div>
+      <div class="ledger-row sub">
+        <span class="what">Subtotal acomodações</span>
+        <span class="amt num" id="sub-hosp">&mdash;</span>
+      </div>
+
+      <div class="ledger-head">Passeios nos Whitsundays</div>
+      <div class="ledger-row">
+        <span class="what"><span id="row-wh-name">Whitehaven</span><small id="row-wh-sub">&mdash;</small></span>
+        <span class="amt num" id="row-wh">&mdash;</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Barreira de corais<small id="row-reef-sub">&mdash;</small></span>
+        <span class="amt num" id="row-reef">&mdash;</span>
+      </div>
+      <div class="ledger-row sub">
+        <span class="what">Subtotal passeios</span>
+        <span class="amt num" id="sub-passeios">&mdash;</span>
+      </div>
+
+      <div class="ledger-head">Deslocamento</div>
+      <div class="ledger-row">
+        <span class="what">Voo Sydney &rarr; Proserpine<small>3 &times; A$120</small></span>
+        <span class="amt num">A$360</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Voo Proserpine &rarr; Brisbane<small>3 &times; A$200</small></span>
+        <span class="amt num">A$600</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Transfer do aeroporto em Airlie<small>3 &times; A$50 &middot; ida e volta, 45 min</small></span>
+        <span class="amt num">A$150</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Gold Coast<small>carro da Thais &middot; só o combustível</small></span>
+        <span class="amt off">sem custo</span>
+      </div>
+      <div class="ledger-row sub">
+        <span class="what">Subtotal deslocamento</span>
+        <span class="amt num">A$1.110</span>
+      </div>
+
+      <div class="ledger-head">Dia a dia &middot; 28 dias</div>
+      <div class="dials">
+        <div class="dial">
+          <label for="in-mercado">Mercado por dia, os três</label>
+          <input type="number" id="in-mercado" value="60" min="0" step="5" inputmode="numeric">
+        </div>
+        <div class="dial">
+          <label for="in-jantares">Jantares fora no total</label>
+          <input type="number" id="in-jantares" value="8" min="0" step="1" inputmode="numeric">
+        </div>
+        <div class="dial">
+          <label for="in-extras">Extras e lembranças</label>
+          <input type="number" id="in-extras" value="600" min="0" step="50" inputmode="numeric">
+        </div>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Mercado<small id="led-mercado-sub">&mdash;</small></span>
+        <span class="amt num" id="led-mercado">&mdash;</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Jantares fora<small id="led-jantares-sub">&mdash;</small></span>
+        <span class="amt num" id="led-jantares">&mdash;</span>
+      </div>
+      <div class="ledger-row">
+        <span class="what">Extras e lembranças<small>ímãs, camisetas, bebidas, coisinhas de turista</small></span>
+        <span class="amt num" id="led-extras">&mdash;</span>
+      </div>
+      <div class="ledger-row sub">
+        <span class="what">Subtotal dia a dia</span>
+        <span class="amt num" id="sub-diaadia">&mdash;</span>
+      </div>
+
+      <div class="ledger-row total">
+        <span class="what">Total geral</span>
+        <span class="amt num" id="led-total">&mdash;</span>
+      </div>
+    </div>
+
+    <p class="outside">Fora dessa conta: o <b>transporte em Sydney</b> (cartão Opal, uns A$50 por
+      pessoa nos três dias) e o <b>combustível na Gold Coast</b>, já que o carro é o da Thais.
+      Os passeios de dia inteiro incluem almoço e o traslado do hotel.</p>
+  </div>
+</section>
+</main>
+
+<footer>
+  <svg class="sc" width="80" height="34" viewBox="0 0 80 34" role="img" aria-label="Cruzeiro do Sul">
+    <g fill="#DCBA61">
+      <circle cx="40" cy="5" r="2"/><circle cx="34" cy="18" r="1.6"/>
+      <circle cx="47" cy="15" r="1.8"/><circle cx="41" cy="29" r="2.2"/>
+      <circle cx="39" cy="17" r="1.1" opacity=".7"/>
+    </g>
+  </svg>
+  <p>Preços dos passeios, voos e transfer são aproximados &mdash; confirme com o operador
+    antes de pagar.</p>
+  <p>Datas e noites conferidas contra as reservas. Boa viagem.</p>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+  var PESSOAS = 3, DIAS = 28, JANTAR = 40;
+  var SYD = 1099, AIRLIE = 971, AIRLIE_FLEX = 1065, GC = 6721.80;
+  var DESLOCAMENTO = 360 + 600 + 150;
+
+  function moeda(n){
+    var dec = Math.abs(n - Math.round(n)) > 0.004 ? 2 : 0;
+    return 'A$' + n.toLocaleString('pt-BR', {minimumFractionDigits:dec, maximumFractionDigits:2});
+  }
+  function txt(id, v){ var el = document.getElementById(id); if (el) el.textContent = v; }
+  function valor(id, n){
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.className = 'amt num';
+    el.textContent = moeda(n);
+  }
+  function vazio(id){
+    var el = document.getElementById(id);
+    if (!el) return;
+    el.className = 'amt off';
+    el.textContent = 'não vai';
+  }
+
+  // contagem regressiva
+  var partida = new Date(2026, 10, 8);
+  var hoje = new Date(); hoje.setHours(0,0,0,0);
+  var faltam = Math.round((partida - hoje) / 86400000);
+  if (faltam > 1)       { txt('countdown', faltam); txt('countdown-sub','dias para embarcar'); }
+  else if (faltam === 1){ txt('countdown', '1');    txt('countdown-sub','dia para embarcar'); }
+  else if (faltam === 0){ txt('countdown', 'hoje'); txt('countdown-sub','é hoje'); }
+  else                  { txt('countdown', '\u2014'); txt('countdown-sub','viagem em andamento'); }
+
+  var whRadios   = Array.prototype.slice.call(document.querySelectorAll('input[name="whitehaven"]'));
+  var reefEl     = document.getElementById('reef-check');
+  var limparWh   = document.getElementById('clear-wh');
+  var reembEl    = document.getElementById('in-reemb');
+  var mercadoEl  = document.getElementById('in-mercado');
+  var jantaresEl = document.getElementById('in-jantares');
+  var extrasEl   = document.getElementById('in-extras');
+
+  function atualiza(){
+    // acomodações
+    var airlie = reembEl.checked ? AIRLIE_FLEX : AIRLIE;
+    valor('led-airlie', airlie);
+    var hospedagem = SYD + airlie + GC;
+    valor('sub-hosp', hospedagem);
+
+    // passeios
+    var wh = null;
+    whRadios.forEach(function(r){ if (r.checked) wh = r; });
+    var whTotal = wh ? Number(wh.dataset.price) * PESSOAS : 0;
+    if (wh){
+      txt('row-wh-name', wh.dataset.label);
+      txt('row-wh-sub', PESSOAS + ' \u00d7 ' + moeda(Number(wh.dataset.price)));
+      valor('row-wh', whTotal);
+    } else {
+      txt('row-wh-name', 'Whitehaven Beach');
+      txt('row-wh-sub', 'nenhuma das duas versões');
+      vazio('row-wh');
+    }
+
+    var reefTotal = reefEl.checked ? Number(reefEl.dataset.price) * PESSOAS : 0;
+    if (reefEl.checked){
+      txt('row-reef-sub', PESSOAS + ' \u00d7 ' + moeda(Number(reefEl.dataset.price)));
+      valor('row-reef', reefTotal);
+    } else {
+      txt('row-reef-sub', 'fora do roteiro');
+      vazio('row-reef');
+    }
+    var passeios = whTotal + reefTotal;
+    valor('sub-passeios', passeios);
+
+    // dia a dia
+    var porDia    = Math.max(0, Number(mercadoEl.value)  || 0);
+    var nJantares = Math.max(0, Number(jantaresEl.value) || 0);
+    var extras    = Math.max(0, Number(extrasEl.value)   || 0);
+    var mercado   = porDia * DIAS;
+    var jantares  = nJantares * JANTAR * PESSOAS;
+
+    valor('led-mercado', mercado);
+    txt('led-mercado-sub', moeda(porDia) + ' por dia \u00d7 ' + DIAS + ' dias');
+    valor('led-jantares', jantares);
+    txt('led-jantares-sub', nJantares + (nJantares === 1 ? ' jantar' : ' jantares') +
+      ' \u00d7 ' + moeda(JANTAR) + ' por pessoa');
+    valor('led-extras', extras);
+    var diaadia = mercado + jantares + extras;
+    valor('sub-diaadia', diaadia);
+
+    valor('led-total', hospedagem + passeios + DESLOCAMENTO + diaadia);
+  }
+
+  whRadios.forEach(function(r){ r.addEventListener('change', atualiza); });
+  reefEl.addEventListener('change', atualiza);
+  reembEl.addEventListener('change', atualiza);
+  [mercadoEl, jantaresEl, extrasEl].forEach(function(el){ el.addEventListener('input', atualiza); });
+  limparWh.addEventListener('click', function(){
+    whRadios.forEach(function(r){ r.checked = false; });
+    atualiza();
+  });
+
+  atualiza();
+})();
+</script>
+</body>
+</html>
